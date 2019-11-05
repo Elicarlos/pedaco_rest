@@ -39,7 +39,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'myapp',
+    'oauth2_provider',
+    'rest_condition',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('oauth2_provider.contrib.rest_framework.OAuth2Authentication',),
+}
+
+OAUTH2_PROVIDER = {
+    #lISTA DE SCOPES VALIDOS
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Acess to your groups'},
+    'ACESS_TOKEN_EXPIRE_SECONDS': 36000,
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
