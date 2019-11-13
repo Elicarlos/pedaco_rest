@@ -6,10 +6,11 @@ class AlbumSerializer(serializers.ModelSerializer):
         model = Album
         fields = '__all__'
 
-class MusicSerializer(serializers.ModelSerializer):   
+class MusicSerializer(serializers.ModelSerializer): 
+    album = AlbumSerializer()  
     class Meta:
         model = Music
-        fields = '__all__'
+        fields = ('title', 'seconds', 'album')
 
 
 class BandSerializer(serializers.ModelSerializer):
